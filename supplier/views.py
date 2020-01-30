@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from employee.models import Employee
+from medicine.models import Medicine
 
-# Create your views here.
+def supp_home(request):
+    pass
+

@@ -8,11 +8,12 @@ class Medicine(models.Model):
     name = models.CharField(_("Name"), max_length=50)
     customer = models.ForeignKey(Customer, related_name="meds", verbose_name=_(""), on_delete=models.CASCADE)
     bill = models.ForeignKey(Bill, verbose_name=_("Bill"), on_delete=models.CASCADE)
-    quantity =  models.PositiveIntegerField(_("Qty"))
+    quantity =  models.PositiveIntegerField(_("Quantity"))
+    weight = models.FloatField(_("Weight"), blank=True, null=True)
     price = models.IntegerField(_("Price"))
-    mfd = models.DateField(_("MFD"), auto_now=False, auto_now_add=False)
-    exp = models.DateField(_("EXP"), auto_now=False, auto_now_add=False)
-    
+    mfd = models.DateField(_("Manufactured on"), auto_now=False, auto_now_add=False)
+    exp = models.DateField(_("Expires on"), auto_now=False, auto_now_add=False)
+    placed_at = models.CharField(_("Placed at"), max_length=40, blank=True, null=True)
 
     class Meta:
         verbose_name = _("Medicine")
