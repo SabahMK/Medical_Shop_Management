@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from customer.models import Customer
+from supplier.models import Supplier
 
 
 
@@ -10,6 +11,8 @@ from customer.models import Customer
 class Bill(models.Model):
     customer = models.ForeignKey(Customer, verbose_name=_("Customer"), on_delete=models.CASCADE)
     dop = models.DateTimeField(_("DOP"), auto_now=False, auto_now_add=False)
+    supplier = models.ForeignKey(Supplier, verbose_name=_("Supplier"), on_delete=models.CASCADE, blank=True, null=True)
+
 
 
     

@@ -14,6 +14,7 @@ class Medicine(models.Model):
     mfd = models.DateField(_("Manufactured on"), auto_now=False, auto_now_add=False)
     exp = models.DateField(_("Expires on"), auto_now=False, auto_now_add=False)
     placed_at = models.CharField(_("Placed at"), max_length=40, blank=True, null=True)
+    
 
     class Meta:
         verbose_name = _("Medicine")
