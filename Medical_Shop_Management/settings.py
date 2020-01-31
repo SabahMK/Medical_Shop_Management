@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'medicine',
     'employee',
     'customer',
+    'rangefilter',
 ]
 
 MIDDLEWARE = [

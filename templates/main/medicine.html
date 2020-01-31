@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <link rel="stylesheet" href="..\css\bootstrap.min.css">
+</head>
+<body>
+    <header >
+        <nav class="navbar list-unstyled bg-info text-white" >
+            <li ><a href="#" >HOME</a></li>
+            <li><a href="#">CONTACT US</a></li>
+            <li><a href="#">EMPLOYEE</a></li>
+            <li><a href="#">FEEDBACK</a></li>
+        </nav>
+    </header><br><br>
+    <div class="my-5 container">
+            <input type="text" placeholder="search your medicine..." class="form-control form-control-lg my-4 mx-auto">
+
+    <table class = "table table-striped ">
+        <tr>
+            <th>Medicine Name</th>
+            <th>Quantity</th>
+            <th>Prize</th>
+            <th>Company Name</th>
+            <th>Supplier</th>
+        </tr>
+        <tr>
+            <td> <a href="search_medicine.html">Que Sol 10 Softgels</a></td>
+            <td>Pack of 6</td>
+            <td>$116</td>
+            <td>AAA Pharma Ltd</td>
+            <td>MedPlus</td>
+        </tr>
+        <tr>
+            <td><a href="search_medicine.html">Augmentin</a></td>
+            <td>10</td>
+            <td>70</td>
+            <td>AAA Pharma Ltd</td>
+            <td>Upright Pharma</td>
+        </tr>
+        <tr>
+            <td><a href="search_medicine.html">Crocin</a></td>
+            <td>9</td>
+            <td>40</td>
+            <td>AAA Pharma Ltd</td>
+            <td>Vishal Medicals</td>
+        </tr>
+        <tr>
+            <td><a href="search_medicine.html">Flexon MR</a></td>
+            <td>12</td>
+            <td>60</td>
+            <td>AAA Pharma Ltd</td>
+            <td>1mg Pharma</td>
+        </tr>
+        
+    </table>
+    
+</body>
+</html>

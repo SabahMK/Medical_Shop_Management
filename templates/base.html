@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medical Shop Management</title>
+    <link rel="stylesheet" href="..\css\medical.css">
+</head>
+<body>
+    {% include 'partials/_header.html' %}
+
+    {{% block content  %}
+
+    {% endblock content  %}}
+
+    {% include 'partials/_footer.html' %}
+
+    <script src="{% static 'js/jquery-1.3.2min.js' %}"></script>
+    <script src="{% static 'js/example.js' %}"></script>
+    
+</body>
+</html>
