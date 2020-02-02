@@ -3,5 +3,5 @@ from employee.models import Employee
 from medicine.models import Medicine
 
 def supp_home(request):
-    pass
+    return render(request, 'bill.html')
 

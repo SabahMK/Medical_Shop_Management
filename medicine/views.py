@@ -4,7 +4,7 @@ from employee.models import Employee
 from .models import Medicine
 
 def med_home(request):
-    return render(request, 'main/medicine.html' )
+    return render(request, 'medicine.html' )
 
 def search_medicine(request):
     if request.method == 'POST':
@@ -15,4 +15,4 @@ def search_medicine(request):
     context = {
         'medicine' : medicine,
     }
-    return render(request, 'main/index.html', context)
+    return render(request, 'search_medicine.html', context)
