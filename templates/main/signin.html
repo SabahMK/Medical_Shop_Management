@@ -1,32 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="..\css\medical.css">
-    
-</head>
-<body>
- <h1 class="main">MEDICAL SHOP MANAGEMENT</h1>
-   <!---header-->
-    <header class="navbar">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">CONTACT </a></li>
-        <li><a href="#">LOGIN</a></li>
-        <li></li>
-        <input type="text" placeholder="Search your medicine">
-        <input type="Submit" value="Search" class="btn btn-dark">
-    </header><br><br>
+{% block content  %}
+
 
     <div class="box">
         <input type="text" placeholder="Enter your username "><br><br>
         <input type="text" placeholder="Enter your password" ><br><br>
         <button class="btn btn-dark ">Sign In</button>
         </div>
-</body>
-</html>
+{% endblock content %}

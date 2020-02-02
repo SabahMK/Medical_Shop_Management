@@ -1,0 +1,16 @@
+beautifulsoup4==4.8.0
+certifi==2019.6.16
+chardet==3.0.4
+Django==2.2.8
+django-admin-rangefilter==0.5.1
+django-tinymce==2.8.0
+idna==2.8
+lxml==4.4.1
+mysql-connector==2.2.9
+Pillow==6.2.1
+pytz==2019.2
+requests==2.22.0
+soupsieve==1.9.3
+sqlparse==0.3.0
+urllib3==1.25.3
+virtualenv==16.7.7

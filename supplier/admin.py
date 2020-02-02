@@ -1,8 +1,14 @@
 from django.contrib import admin
-from .models import Supply
-# Register your models here.
+from .models import Supplier
+from employee.models import Bill
 
-@admin.register(Supply)
-class SupplyAdmin(admin.ModelAdmin):
-    list_display = ['name','company','stock']
-    
+# Register your models here.
+class BillInline(admin.TabularInline):
+    model = Bill
+    extra = 1
+
+
+@admin.register(Supplier)
+class SupplierAdmin(admin.ModelAdmin):
+    list_display = ["contact_person","company","phone", "email","address"]
+    inlines = (BillInline,)

@@ -1,0 +1,32 @@
+******************
+SUPPLY
+
+name = character(100)
+qty = integer
+company
+bill
+address
+**********************
+EMPLOYEE
+
+name
+stock
+location
+******************
+
+BILL
+
+Name of med
+qty
+price
+Date of purchase
+address
+*********************
+CUSTOMER
+
+name
+email 
+phone
+address
+Meds purchased
+

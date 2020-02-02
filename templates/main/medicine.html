@@ -1,23 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
- <link rel="stylesheet" href="..\css\bootstrap.min.css">
-</head>
-<body>
-    <header >
-        <nav class="navbar list-unstyled bg-info text-white" >
-            <li ><a href="#" >HOME</a></li>
-            <li><a href="#">CONTACT US</a></li>
-            <li><a href="#">EMPLOYEE</a></li>
-            <li><a href="#">FEEDBACK</a></li>
-        </nav>
-    </header><br><br>
+
+{% block content %}
     <div class="my-5 container">
             <input type="text" placeholder="search your medicine..." class="form-control form-control-lg my-4 mx-auto">
 
@@ -60,5 +44,4 @@
         
     </table>
     
-</body>
-</html>
+{% endblock content %}
