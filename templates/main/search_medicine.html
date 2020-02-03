@@ -4,9 +4,17 @@
 {% block content %}
 
     <div class="my-5 container">
+    
+                
         <h1 class="text-muted text-center my-4">Inventory</h1>
-        <form method="POST" action="{% url "medicine" %}">
+        <form method="POST" action="{% url 'medicine' %}">
+            {% csrf_token %}
         <input type="text" name="search" placeholder="search the medicine..." class="form-control form-control-lg my-4 mx-auto">
+        <div class="result mt-2 ">
+                <ul class="results list-group">
+
+                </ul>
+            </div>
         </form>
         <table class="table table-striped">
             <tr>
@@ -25,6 +33,50 @@
         </table>
             
     </div>
+    <script>
+const searchField = document.querySelector('#search_text');
+const results = document.querySelector(".results");
+const url = "{% url 'search_medicine' %}"
+console.log(url)
+const render = datas => {
+  let html = datas
+    .map(data => {
+      return `<li class="card">
+        <div>${data.name}</div>
+        <small>${data.price}</small>
+      </li>`;
+    })
+    .join("");
+  results.innerHTML = html;
+  console.log(html);
+};
+
+const getData = async txt => {
+  const response = await fetch(url);
+  const datas = await response.json();
+
+  //   return datas;
+  const filteredData = await datas.filter(data => {
+    const regex = new RegExp(`^${txt}`, "ig");
+    if (data.name.match(regex) || data.price.match(regex)) {
+      return true;
+    }
+  });
+  return filteredData;
+};
+
+searchField.addEventListener("keyup", e => {
+  const searchText = searchField.value;
+  getData(searchText)
+    .then(data => render(data))
+    .catch(err => console.log(err));
+
+  if (searchText === "" || searchText === null) {
+    results.innerHTML = "";
+  }
+});
+</script>
+
 {% endblock content %}
 
 

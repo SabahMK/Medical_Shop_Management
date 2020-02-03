@@ -4,14 +4,19 @@ from employee.models import Employee
 from .models import Medicine
 
 def med_home(request):
-    return render(request, 'main/medicine.html' )
+    all_meds = Medicine.objects.all()
+    context = {
+        'all_meds' : all_meds,
+    }
+
+    return render(request, 'main/medicine.html',context )
 
 def search_medicine(request):
     if request.method == 'POST':
         search_med = request.POST.get('search')
     else:
         search_med = ''
-    medicine = Medicine.objects.filter(name__icontains=search_med)
+    medicines = Medicine.objects.filter(name__icontains=search_med)
     context = {
         'medicines' : medicines,
     }

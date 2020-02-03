@@ -3,8 +3,7 @@
 
 {% block content %}
     <div class="my-5 container">
-            <input type="text" placeholder="search your medicine..." class="form-control form-control-lg my-4 mx-auto">
-
+            
     <table class = "table table-striped ">
         <tr>
             <th>Medicine Name</th>
@@ -13,6 +12,7 @@
             <th>Company Name</th>
             <th>Supplier</th>
         </tr>
+        <div>
         <tr>
             {% for medicine in medicines %}
             <td>{{ medicine.name }}</td>
@@ -22,5 +22,6 @@
             {% endfor %}
            
         </tr>
+        </div>
         </table>
 {% endblock content %}

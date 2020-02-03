@@ -10,4 +10,4 @@ def emp_home(request):
     context = {
         'all_employee' : all_employee,
     }
-    return render(request, 'main/signin.html', context)
+    return render(request, 'main/index.html', context)
