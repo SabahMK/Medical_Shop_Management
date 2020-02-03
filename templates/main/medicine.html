@@ -14,34 +14,13 @@
             <th>Supplier</th>
         </tr>
         <tr>
-            <td> <a href="search_medicine.html">Que Sol 10 Softgels</a></td>
-            <td>Pack of 6</td>
-            <td>$116</td>
-            <td>AAA Pharma Ltd</td>
-            <td>MedPlus</td>
+            {% for medicine in medicines %}
+            <td>{{ medicine.name }}</td>
+            <td>{{ medicine.quantity}}</td>
+            <td>{{ medicine.weight }}</td>
+            <td>{{ medicine.price }}</td>
+            {% endfor %}
+           
         </tr>
-        <tr>
-            <td><a href="search_medicine.html">Augmentin</a></td>
-            <td>10</td>
-            <td>70</td>
-            <td>AAA Pharma Ltd</td>
-            <td>Upright Pharma</td>
-        </tr>
-        <tr>
-            <td><a href="search_medicine.html">Crocin</a></td>
-            <td>9</td>
-            <td>40</td>
-            <td>AAA Pharma Ltd</td>
-            <td>Vishal Medicals</td>
-        </tr>
-        <tr>
-            <td><a href="search_medicine.html">Flexon MR</a></td>
-            <td>12</td>
-            <td>60</td>
-            <td>AAA Pharma Ltd</td>
-            <td>1mg Pharma</td>
-        </tr>
-        
-    </table>
-    
+        </table>
 {% endblock content %}

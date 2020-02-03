@@ -4,7 +4,7 @@ from employee.models import Employee
 from .models import Medicine
 
 def med_home(request):
-    return render(request, 'main/index.html' )
+    return render(request, 'main/medicine.html' )
 
 def search_medicine(request):
     if request.method == 'POST':
@@ -13,6 +13,6 @@ def search_medicine(request):
         search_med = ''
     medicine = Medicine.objects.filter(name__icontains=search_med)
     context = {
-        'medicine' : medicine,
+        'medicines' : medicines,
     }
     return render(request, 'main/search_medicine.html', context)
