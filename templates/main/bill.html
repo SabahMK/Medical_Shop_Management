@@ -170,7 +170,7 @@
 		  
 
           <tr class="item-row" style="background-color:#ccc">
-		      <td class="item-name" ><div class="delete-wpr">{{bill.invoice.lead.technology_based | capfirst }}<a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		      <td class="item-name" ><div class="delete-wpr">{{bill.invoice | capfirst }}<a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 		      <td class="description"></td>
 		      <td><span class="price"></span></td>
 		  </tr>
@@ -242,60 +242,13 @@
 		      <td class="total-value">{{bill.amount_in_word}}</td>
 			  
 		  </tr>
-		  <tr>
-		      <td colspan="1" class="blank"> </td>
-		      <td colspan="1" class="total-line">Paid Through</td>
+		 
+			
 
-		      <td class="total-value">{{bill.payment_option}}</td>
-			  
-		  </tr>
-		  
-			{% if cash %}
-				<tr>
-		      <td colspan="1" class="blank"> </td>
-		      <td colspan="1" class="total-line">Amount Denominations</td>
+			
+			
 
-		      <td class="total-value">
-			  <div class="denominations">
-			  {% if bill.two_thousands %}
-			  {{bill.two_thousands}}x2000  {% endif %}
-			  {% if bill.five_hundreds %}
-			  {{bill.five_hundreds}}x500 {% endif %}
-			  {% if bill.two_hundreds %}
-			  {{bill.two_hundreds}}x200 {% endif %}
-			  {% if bill.hundreds %}
-			  {{bill.hundreds}}x100 {% endif %}
-			  {% if bill.fiftys %}
-			  {{bill.fiftys}}x50 {% endif %}
-			  {% if bill.twenties %}
-			  {{bill.twenties}}x20 {% endif %}
-			  {% if bill.tens %}
-			  {{bill.tens}}x10 {% endif %}
-			  {% if bill.change %}
-			  {{ bill.change }}
-			  </div>
-			  </td>{% endif %}
-			  
-		  </tr>
-			{% endif %}
-
-			{% if cheque %}
-			<tr>
-		      <td colspan="1" class="blank"> </td>
-		      <td colspan="1" class="total-line">Cheque Status</td>
-
-		      <td class="total-value">{{bill.cheque_status}}</td>
-			  
-		  	</tr>
-			<tr>
-		      <td colspan="1" class="blank"> </td>
-		      <td colspan="1" class="total-line">Bank Name/Branch</td>
-
-		      <td class="total-value">{{bill.bank_name}}/{{bill.bank_branch}}</td>
-			  
-		  </tr>
-
-			{% endif %}
+		
 		  {% comment %} <tr>
 		      <td colspan="1" class="blank"> </td>
 		      <td colspan="1" class="total-line balance">Balance Due</td>
@@ -307,69 +260,9 @@
 
 		<a href="{% url 'bill2pdf' bill.id %}" id="printPageButton" class="btn btn-success">Send and Save</a>
 		
-		<div id="terms" style="page-break-before: always;">
-		  <h5>Terms</h5>
-		  <div style="text-align: left;"><ul>
-      <li>Candidates must be puntual and regulare Minimum 90% attendance is mandatory.</li>
-      <li>Once enrolled and opts to discontinue the service immediately only 50% of the total fees of the services will be refunded Exculding GST</li>
-      <li>If the candidate likes to discontinue the service after 9 classes or more than 9 classes than there is No refund of the course Value</li>
-      <li>In case of other services like Project, Internship, Seminars Implant Trainning etc., No refund of the total fees paid.</li>
-      <li>Instalments must be paid on due date given, if not Rs. 200/- fine will be added per day.</li>
-      <li>Rs.500 will be charged against cheque bounced and Rs.700 against the outstation cheques.</li>
-      <li>Certificates will be issued based on the examinaton conducted by the institute</li>
-      <li>Candidates should secure minimum 60% in examination, failure of which the certificates will not be issued to Re-appear fo examination Candidates are liable to pay Rs.500+GST</li>
-      <li>If the Candidate does not attended not more than 7 classes then he/she will be liable to pay Break Fees of Rs.2000/- and he/she should wait till the next batch scheduled.</li>
-      <li>The institute reserves the right to postpone I Re-schedule the classes during unavoidable circumstances.</li>
-      <li>In case of a Candidate wishes to discontinue from advance module, he/she eill be liable to pay 50% of the Course fees, Candidates are eligible fo placement for placement only if they undergo the placements only if they undergo the placement activites conducted by the institute.</li>
-      <li>Placement service charges will be levied, when the Candidate is placed by Evolet Technologies. The fees will be charged as deemed fit by the company and Evolet Technologies holds the right to change the Placement fees.</li>
-      <li>Any disputes arises it will be settled in any court of law within Bangalore Jurisdiction.</li>
 
-    </ul></div>
-		</div>
 	
-	</div>
-{% if bill.payment_option == 'cash' %}
-	<script>
-
-	let two_thousand = 0;
-	let five_hundred = 0
-	let two_hundred = 0;
-	let hundred = 0;
-	let fifty = 0;
-	let twenty = 0;
-	let ten = 0;
-	let change = 0;
-	const denominations = document.querySelector('.denominations');
-
-		{% if bill.two_thousands %}
-			   two_thousand = {{bill.two_thousands}} {% endif %}
-			  {% if bill.five_hundreds %}
-			  five_hundred = {{bill.five_hundreds}} {% endif %}
-			  {% if bill.two_hundreds %}
-			  two_hundred = {{bill.two_hundreds}} {% endif %}
-			  {% if bill.hundreds %}
-			  hundred = {{bill.hundreds}} {% endif %}
-			  {% if bill.fiftys %}
-			  fifty = {{bill.fiftys}} {% endif %}
-			  {% if bill.twenties %}
-			  twenty = {{bill.twenties}} {% endif %}
-			  {% if bill.tens %}
-			  ten = {{bill.tens}} {% endif %}
-			  {% if bill.change %}
-			  change = {{bill.change}} {% endif %}
-
-			  total = (two_thousand)*2000 + five_hundred*500 + two_hundred*200 + hundred*100 + fifty*50 + twenty*20 + ten*10 + change
-
-			  let bill_amount = {{bill.recieve_amount}}
-			  console.log(bill_amount)
-			  console.log(total)
-			  if(bill_amount == total){
-				  alert('denominations valid')
-				  denominations.style.color = 'green';
-			  } else{
-				  alert("denominations doesn't match")
-				  denominations.style.color = 'red';
-			  }
+			  
 	</script>
 {% endif %}
 	<script type='text/javascript' src="{% static 'js/invoice/jquery-1.3.2.min.js' %}"></script>
