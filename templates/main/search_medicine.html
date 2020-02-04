@@ -7,76 +7,43 @@
     
                 
         <h1 class="text-muted text-center my-4">Inventory</h1>
-        <form method="POST" action="{% url 'medicine' %}">
-            {% csrf_token %}
-        <input type="text" name="search" placeholder="search the medicine..." class="form-control form-control-lg my-4 mx-auto">
-        <div class="result mt-2 ">
-                <ul class="results list-group">
-
-                </ul>
-            </div>
-        </form>
-        <table class="table table-striped">
+        <form method="GET" action="{% url 'search_medicine' %}">
+        <table class="table table-striped " name='q'>
+       
             <tr>
-                <th>Medicine's Name</th>
-                <td>XYZ medicine.</td>
+                <th scope='col'>Medicine's Name</th>
+                <th scope='col'>Quantity</th>
+                <th scope='col'>Price</th>
+                
             </tr>
+             {% for medicine in medicines %}
             <tr>
-                <th>Quantity</th>
-                <td>20</td>
+                
+                <td scope='row'>{{medicine.name}}</td>
+                <td>{{medicine.quantity}}</td>
+                <td>{{medicine.price}}</td>
             </tr>
-            <tr>
-                <th>Weight</th>
-                <td>20mg</td>
-            </tr>
-
+        
+            
+        {% endfor %}
         </table>
+        </form>
             
     </div>
-    <script>
-const searchField = document.querySelector('#search_text');
-const results = document.querySelector(".results");
-const url = "{% url 'search_medicine' %}"
-console.log(url)
-const render = datas => {
-  let html = datas
-    .map(data => {
-      return `<li class="card">
-        <div>${data.name}</div>
-        <small>${data.price}</small>
-      </li>`;
-    })
-    .join("");
-  results.innerHTML = html;
-  console.log(html);
-};
-
-const getData = async txt => {
-  const response = await fetch(url);
-  const datas = await response.json();
-
-  //   return datas;
-  const filteredData = await datas.filter(data => {
-    const regex = new RegExp(`^${txt}`, "ig");
-    if (data.name.match(regex) || data.price.match(regex)) {
-      return true;
-    }
-  });
-  return filteredData;
-};
-
-searchField.addEventListener("keyup", e => {
-  const searchText = searchField.value;
-  getData(searchText)
-    .then(data => render(data))
-    .catch(err => console.log(err));
-
-  if (searchText === "" || searchText === null) {
-    results.innerHTML = "";
-  }
-});
-</script>
-
+    
+  <script>
+    const meds=document.querySelector('#meds');
+    const render = datas => {
+      let html = datas.map(data => {
+        return `<td>${data.name}</td>
+                <td>${data.quantity}</td>
+                <td>${data.weight}</td>
+        `;}).join("");
+      results.innerHTML = html;
+      console.log(html);
+    };
+  
+  </script>
 {% endblock content %}
 
 

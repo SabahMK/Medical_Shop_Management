@@ -3,25 +3,28 @@
 
 {% block content %}
     <div class="my-5 container">
+   
             
     <table class = "table table-striped ">
+        <div class="row d-flex">
         <tr>
             <th>Medicine Name</th>
             <th>Quantity</th>
-            <th>Prize</th>
-            <th>Company Name</th>
-            <th>Supplier</th>
+            <th>Weight</th>
+            <th>Price</th>
+            
         </tr>
-        <div>
-        <tr>
+        
+        <tr >
             {% for medicine in medicines %}
-            <td>{{ medicine.name }}</td>
-            <td>{{ medicine.quantity}}</td>
-            <td>{{ medicine.weight }}</td>
-            <td>{{ medicine.price }}</td>
+            <td ><a href="{% url 'search_medicine'%}">{{ medicine.name }}</a></td>
+            <td >{{medicine.quantity}}</td>
+            <td>{{medicine.weight }}</td>
+            <td>{{medicine.price }}</td><br>
             {% endfor %}
            
         </tr>
         </div>
         </table>
+        </div>
 {% endblock content %}

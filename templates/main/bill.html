@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 {% load static %}
 {% load mathfilters %}
 
@@ -138,7 +137,7 @@
 		
 		<div id="customer">
 
-            <div id="customer-title"> {{ bill.invoice.lead.lead_name }} </div>
+            <div id="customer-title">{{customer.name}} </div>
 
             <table id="meta">
                 <tr>
@@ -162,7 +161,7 @@
 		<table id="items" style="text-align:right;">
 		
 		  <tr>
-		      <th>{{ bill.invoice.lead.enquired_for | capfirst }}</th>
+		      <th>Items</th> 
 		      <th>Description</th>
 		      
 		      <th>Price</th>
@@ -170,7 +169,7 @@
 		  
 
           <tr class="item-row" style="background-color:#ccc">
-		      <td class="item-name" ><div class="delete-wpr">{{bill.invoice | capfirst }}<a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		      <td class="item-name" ></td>
 		      <td class="description"></td>
 		      <td><span class="price"></span></td>
 		  </tr>
@@ -182,19 +181,14 @@
 
 		 
 		  
-		  {% comment %} <tr class="item-row">
+		   <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
 
-		      <td class="description">Course Ware Fee</td>
+		      <td class="description">{{}}</td>
 		      <td><span class="price"> ₹{{bill.course_ware_fee }} </span></td>
 		  </tr>
 
-          <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-
-		      <td class="description">Tution Fee</td>
-		      <td><span class="price"> ₹{{bill.tution_fee }} </span></td>
-		  </tr>
+          
 
           <tr class="item-row">
 		      <td class="item-name"><div class="delete-wpr"><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
