@@ -6,7 +6,7 @@ from customer.models import Customer
 # Create your models here.
 class Medicine(models.Model):
     name = models.CharField(_("Name"), max_length=50)
-    customer = models.ForeignKey(Customer, related_name="meds", verbose_name=_(""), on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, verbose_name=_("Get") ,related_name="meds", on_delete=models.CASCADE)
     # bill = models.ForeignKey(Bill, verbose_name=_("Bill"), on_delete=models.CASCADE)
     quantity =  models.IntegerField(_("Quantity"))
     weight = models.CharField(_("Weight"), blank=True, null=True, max_length=50)

@@ -2,29 +2,27 @@
 {% load static %}
 
 {% block content %}
-    <div class="my-5 container">
+<div class="my-5 container">
    
-            
     <table class = "table table-striped ">
         <div class="row d-flex">
-        <tr>
-            <th>Medicine Name</th>
-            <th>Quantity</th>
-            <th>Weight</th>
-            <th>Price</th>
-            
-        </tr>
-        
-        <tr >
+            <tr>
+                <th scope='col'>Medicine Name</th>
+                <th scope='col'>Quantity</th>
+                <th scope='col'>Weight</th>
+                <th scope='col'>Manufactured on</th>
+                <th scope='col'>Expiry</th>
+            </tr>
             {% for medicine in medicines %}
-            <td ><a href="{% url 'search_medicine'%}">{{ medicine.name }}</a></td>
-            <td >{{medicine.quantity}}</td>
-            <td>{{medicine.weight }}</td>
-            <td>{{medicine.price }}</td><br>
+            <tr >
+                <td scope='row'><a href="{% url 'search_medicine'%}">{{ medicine.name }}</a></td>
+                <td >{{medicine.quantity}}</td>
+                <td>{{medicine.weight}}</td>
+                <td>{{medicine.mfd}}</td>
+                <td>{{medicine.exp}}</td>
+            </tr>
             {% endfor %}
-           
-        </tr>
         </div>
-        </table>
-        </div>
+    </table>
+</div>
 {% endblock content %}

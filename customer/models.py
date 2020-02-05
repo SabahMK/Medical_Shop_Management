@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 class Customer(models.Model):
     name = models.CharField(_("Name"), max_length=150)
     email = models.EmailField(_("Email"), max_length=254)
-    phone = models.IntegerField(_("Phone"))
+    phone = models.CharField(_("Phone"), max_length=150)
     address = models.TextField(_("Address"), blank=True, null=True)
 
 

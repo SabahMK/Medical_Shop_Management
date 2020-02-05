@@ -3,34 +3,32 @@
 
 {% block content %}
 
-    <div class="my-5 container">
-    
-                
-        <h1 class="text-muted text-center my-4">Inventory</h1>
-        <form method="GET" action="{% url 'search_medicine' %}">
-        <table class="table table-striped " name='q'>
+  <div class="my-5 container">
+    <h1 class="text-muted text-center my-4">Inventory</h1>
+      <form method="GET" action="{% url 'search_medicine' %}">
+      <input type="text" placeholder="Search your medicine" class="form-control" name="q" id="q">
+      </form>
+      <table class="table table-striped ">
        
-            <tr>
-                <th scope='col'>Medicine's Name</th>
-                <th scope='col'>Quantity</th>
-                <th scope='col'>Price</th>
+        <tr>
+          <th scope='col'>Medicine's Name</th>
+          <th scope='col'>Quantity</th>
+          <th scope='col'>Price</th>
                 
-            </tr>
-             {% for medicine in medicines %}
-            <tr>
+        </tr>
+        {% for medicine in medicines %}
+        <tr>
                 
-                <td scope='row'>{{medicine.name}}</td>
-                <td>{{medicine.quantity}}</td>
-                <td>{{medicine.price}}</td>
-            </tr>
-        
-            
+          <td scope='row'>{{medicine.name}}</td>
+          <td>{{medicine.quantity}}</td>
+          <td>{{medicine.price}}</td>
+        </tr>
+              
+              
         {% endfor %}
-        </table>
-        </form>
+      </table>
             
-    </div>
-    
+  </div>
   <script>
     const meds=document.querySelector('#meds');
     const render = datas => {
