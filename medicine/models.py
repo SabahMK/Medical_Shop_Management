@@ -13,7 +13,10 @@ class Medicine(models.Model):
     price = models.IntegerField(_("Price"))
     mfd = models.DateField(_("Manufactured on"), auto_now=False, auto_now_add=False)
     exp = models.DateField(_("Expires on"), auto_now=False, auto_now_add=False)
+    mfd_by=  models.CharField(_("Manufactured by"), blank=True, null=True, max_length=50)
     placed_at = models.CharField(_("Placed at"), max_length=40, blank=True, null=True)
+    contains = models.CharField(_("Contains"), max_length=40, blank=True, null=True)
+    body = models.TextField(_("Body"),blank=True, null=True, max_length=500)
     
 
     class Meta:
