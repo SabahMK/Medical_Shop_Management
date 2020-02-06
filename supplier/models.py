@@ -15,7 +15,7 @@ class Supplier(models.Model):
         verbose_name_plural = _("Suppliers")
 
     def __str__(self):
-        return self.name
+        return self.contact_person
 
     def get_absolute_url(self):
         return reverse("Supply_detail", kwargs={"pk": self.pk})

@@ -1,12 +1,9 @@
 from django.contrib import admin
-from .models import Bill,Employee
+from .models import Employee
 
 # Register your models here.
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ['name','stock']
+    list_display = ['name','phone_no']
 
 
-@admin.register(Bill)
-class BillAdmin(admin.ModelAdmin):
-    list_display = ['customer','dop']
