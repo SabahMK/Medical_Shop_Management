@@ -7,7 +7,7 @@ django-tinymce==2.8.0
 idna==2.8
 lxml==4.4.1
 mysql-connector==2.2.9
-Pillow==6.2.1
+Pillow==8.2.0
 pytz==2019.2
 requests==2.22.0
 soupsieve==1.9.3
