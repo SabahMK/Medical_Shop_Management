@@ -1,7 +1,7 @@
 beautifulsoup4==4.8.0
 certifi==2019.6.16
 chardet==3.0.4
-Django==2.2.8
+Django==2.2.22
 django-admin-rangefilter==0.5.1
 django-tinymce==2.8.0
 idna==2.8
